@@ -4,8 +4,9 @@
         <div class="flex flex-col justify-center h-full">
             <!-- Table -->
             <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
-                <header class="px-5 py-4 border-b border-gray-100">
-                    <h2 class="font-semibold text-gray-900">POSTINGAN ANDA</h2>
+                <header class="px-5 py-4 border-b border-gray-100 flex justify-between">
+                    <h2 class="font-semibold text-gray-900 flex items-center">POSTINGAN ANDA</h2>
+                    <a href="" class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Tambah Postingan</a>
                 </header>
                 <div class="p-3">
                     <div class="overflow-x-auto">
@@ -43,17 +44,17 @@
                                             </div>
                                         </td>
                                         <td class="p-2 whitespace-nowrap">
-                                            <div class="text-sm text-center flex">
-                                                <a href="/admin/posts/{{ $post->id }}/edit"
+                                            <div class="text-sm text-center flex space-x-2">
+                                                <a href=""
                                                     class="text-blue-600 hover:text-blue-900">
                                                     Edit
                                                 </a>
     
-                                                <form action="/admin/posts/{{ $post->id }}" method="post">
+                                                <form action="" method="post">
                                                     @csrf
                                                     @method('DELETE')
     
-                                                    <button class="text-xs text-gray-400">Delete</button>
+                                                    <button class="text-xs text-red-400">Delete</button>
                                                 </form>
                                             </div>
                                         </td>

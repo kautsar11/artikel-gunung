@@ -9,11 +9,13 @@
         </form>
 
         {{-- post card --}}
-        <div class="container md:grid md:grid-cols-2 md:mx-auto lg:grid-cols-3 lg:mx-auto lg:justify-around">
-            @foreach ($posts as $post)
-                <x-post.post-card :post="$post" />
-            @endforeach
-        </div>
+        <a href="">
+            <div class="container md:grid md:grid-cols-2 md:mx-auto lg:grid-cols-3 lg:mx-auto lg:justify-around ">
+                @foreach ($posts as $post)
+                    <x-post.post-card :post="$post" />
+                @endforeach
+            </div>
+        </a>
         {{ $posts->links() }}
     </main>
 </x-layout.base>
