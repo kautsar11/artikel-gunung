@@ -1,9 +1,6 @@
 <x-layout.base>
-    <!-- navbar -->
-    @include('components.layout._header')
-
     <main class="mt-14">
-        
+
         {{-- search --}}
         <form action="" method="get" class="w-full flex justify-center mb-7">
             <input
@@ -14,12 +11,9 @@
         {{-- post card --}}
         <div class="container md:grid md:grid-cols-2 md:mx-auto lg:grid-cols-3 lg:mx-auto lg:justify-around">
             @foreach ($posts as $post)
-            <x-post.post-card :post="$post"/>
+                <x-post.post-card :post="$post" />
             @endforeach
         </div>
         {{ $posts->links() }}
     </main>
-
-    {{-- footer --}}
-    @include('components.layout._footer')
 </x-layout.base>

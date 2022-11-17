@@ -11,13 +11,13 @@
           <div class="w-full hidden lg:block">
             <div class="ml-10 flex items-baseline space-x-4 justify-between">
               <div class="lg:w-2/4 flex justify-between">
-                <x-navbar-link name="beranda" href="/" class="text-gray-700 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : ''}}"/>
-                <x-navbar-link name="info lainnya" href="/test" class="text-gray-700"/>
-                <x-navbar-link name="postingan anda" href="/test" class="text-gray-700"/>
+                <x-link-navbar name="beranda" href="/" class="text-gray-700 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : ''}}"/>
+                <x-link-navbar name="info lainnya" href="/test" class="text-gray-700"/>
+                <x-link-navbar name="postingan anda" href="/postingan-anda" class="text-gray-700 {{ request()->is('postingan-anda') ? 'underline decoration-2 underline-offset-2' : ''}}"/>
               </div>
               <div>
-                <x-navbar-link name="login" href="/login" class="text-gray-700"/>
-                <x-navbar-link name="register" href="/test" class="bg-slate-900 ml-2 hover:border hover:border-gray-700 hover:bg-white hover:text-gray-900 text-white"/>
+                <x-link-navbar name="login" href="/login" class="text-gray-700"/>
+                <x-link-navbar name="register" href="/test" class="bg-slate-900 ml-2 hover:border hover:border-gray-700 hover:bg-white hover:text-gray-900 text-white"/>
               </div>
             </div>
           </div>
@@ -48,19 +48,19 @@
     >
       <ul class="mx-3 space-y-2 mb-4">
         <li >
-          <x-navbar-link class="lg:hidden text-black" href="/login" name="login"/>
+          <x-link-navbar class="lg:hidden text-black" href="/login" name="login"/>
         </li>
         <li>
-            <x-navbar-link class="lg:hidden text-black" href="/test" name="register"/>
+            <x-link-navbar class="lg:hidden text-black" href="/test" name="register"/>
         </li>
         <li>
-            <x-navbar-link class="lg:hidden text-black" href="/" name="beranda"/>
+            <x-link-navbar class="lg:hidden text-black" href="/" name="beranda"/>
         </li>
         <li>
-            <x-navbar-link class="lg:hidden text-black" href="/test" name="info lainnya"/>
+            <x-link-navbar class="lg:hidden text-black" href="/test" name="info lainnya"/>
         </li>
         <li>
-            <x-navbar-link class="lg:hidden text-black" href="/test" name="postingan anda"/>
+            <x-link-navbar class="lg:hidden text-black" href="/postingan-anda" name="postingan anda"/>
         </li>
       </ul>
     </div>

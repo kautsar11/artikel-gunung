@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PostController::class, 'index']);
+Route::get('postingan-anda', [PostController::class, 'allPost']);
 
 Route::get('login', function () {
     return view('login.create');

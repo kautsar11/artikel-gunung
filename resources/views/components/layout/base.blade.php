@@ -10,9 +10,13 @@
 </head>
 
 <body class="min-h-screen flex flex-col">
-
+    <!-- navbar -->
+    @include('components.layout._header')
+    
     {{ $slot }}
 
+    {{-- footer --}}
+    @include('components.layout._footer')
 </body>
 
 </html>
