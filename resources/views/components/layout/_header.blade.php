@@ -17,7 +17,7 @@
               </div>
               <div>
                 <x-link-navbar name="login" href="/login" class="text-gray-700"/>
-                <x-link-navbar name="register" href="/test" class="bg-slate-900 ml-2 hover:border hover:border-gray-700 hover:bg-white hover:text-gray-900 text-white"/>
+                <x-link-navbar name="register" href="/register" class="bg-slate-900 ml-2 hover:border hover:border-gray-700 hover:bg-white hover:text-gray-900 text-white"/>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
           <x-link-navbar class="lg:hidden text-black" href="/login" name="login"/>
         </li>
         <li>
-            <x-link-navbar class="lg:hidden text-black" href="/test" name="register"/>
+            <x-link-navbar class="lg:hidden text-black" href="/register" name="register"/>
         </li>
         <li>
             <x-link-navbar class="lg:hidden text-black" href="/" name="beranda"/>

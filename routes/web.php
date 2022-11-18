@@ -16,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('postingan-anda', [PostController::class, 'allPost']);
+Route::view('tambah-postingan', 'posts.create');
 
 Route::get('login', function () {
     return view('login.create');
+});
+
+Route::get('register', function () {
+    return view('register.create');
 });

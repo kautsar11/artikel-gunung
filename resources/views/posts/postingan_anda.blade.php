@@ -1,4 +1,7 @@
 <x-layout.base>
+    <!-- navbar -->
+    @include('components.layout._header')
+
     <!-- component -->
     <section class="antialiased bg-gray-100 text-gray-600 h-screen px-4">
         <div class="flex flex-col justify-center h-full">
@@ -6,7 +9,7 @@
             <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
                 <header class="px-5 py-4 border-b border-gray-100 flex justify-between">
                     <h2 class="font-semibold text-gray-900 flex items-center">POSTINGAN ANDA</h2>
-                    <a href="" class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Tambah Postingan</a>
+                    <a href="tambah-postingan" class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Tambah Postingan</a>
                 </header>
                 <div class="p-3">
                     <div class="overflow-x-auto">
@@ -69,4 +72,7 @@
     </section>
 
     {{ $posts->links() }}
+
+    {{-- footer --}}
+    @include('components.layout._footer')
 </x-layout.base>
