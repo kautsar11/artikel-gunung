@@ -10,12 +10,14 @@
 
                 <div class="w-full hidden lg:block">
                     <div class="ml-10 flex items-baseline space-x-4 justify-between">
-                        <div class="lg:w-2/4 flex justify-between">
+                        <div class="lg:w-2/4 flex justify-start">
                             <x-link-navbar name="beranda" href="/"
                                 class="text-gray-700 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             <x-link-navbar name="info lainnya" href="/test" class="text-gray-700" />
-                            <x-link-navbar name="postingan anda" href="/postingan-anda"
-                                class="text-gray-700 {{ request()->is('postingan-anda') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                            @auth
+                                <x-link-navbar name="postingan anda" href="/postingan-anda"
+                                    class="text-gray-700 {{ request()->is('postingan-anda') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                            @endauth
                         </div>
                         <div>
                             @guest
@@ -23,9 +25,11 @@
                                 <x-link-navbar name="register" href="/register"
                                     class="bg-slate-900 ml-2 hover:border hover:border-gray-700 hover:bg-white hover:text-gray-900 text-white" />
                             @else
-                                    <form action="" method="post">
-                                      <button type="submit" class="font-mono bg-slate-900 text-white hover:bg-white hover:text-slate-900 hover:border rounded py-2 px-3">Logout</button>
-                                    </form>
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit"
+                                        class="font-mono bg-slate-900 text-white hover:bg-white hover:text-slate-900 hover:border rounded py-2 px-3">Logout</button>
+                                </form>
                             @endguest
                         </div>
                     </div>
