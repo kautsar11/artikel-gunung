@@ -1,7 +1,7 @@
 <x-layout.base>
     <div class="h-screen w-full flex justify-center items-center">
         <div class="max-w-sm lg:min-w-fit rounded overflow-hidden shadow-lg">
-            <form action="" method="post">
+            <form action="register" method="post">
                 @csrf
                 <div class="px-6 py-4">
                     <h1 class="font-bold font-mono uppercase text-2xl text-center">

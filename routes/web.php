@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Route::get('login', function () {
     return view('login.create');
 });
 
-Route::get('register', function () {
-    return view('register.create');
+Route::group(['controller' => RegisterController::class, 'middleware' => 'guest'], function () {
+    Route::get('register', 'index');
+    Route::post('register', 'store');
 });
