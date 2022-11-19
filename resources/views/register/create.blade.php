@@ -12,7 +12,7 @@
                     <x-form.input type="password" placeholder="Password" name="password" class="my-4"/>
                 </div>
                 <div class="px-6 pt-0 pb-6">
-                    <x-form.submit-button class="bg-slate-700 hover:bg-slate-900 text-white">Login</x-form.submit-button>
+                    <x-form.submit-button class="bg-slate-700 hover:bg-slate-900 text-white">Register</x-form.submit-button>
                 </div>
             </form>
         </div>

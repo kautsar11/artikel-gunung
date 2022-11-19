@@ -15,8 +15,8 @@
                                 class="text-gray-700 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             <x-link-navbar name="info lainnya" href="/test" class="text-gray-700" />
                             @auth
-                                <x-link-navbar name="postingan anda" href="/postingan-anda"
-                                    class="text-gray-700 {{ request()->is('postingan-anda') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                                <x-link-navbar name="postingan anda" href="/author/postingan-anda"
+                                    class="text-gray-700 {{ request()->is('author/postingan-anda') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             @endauth
                         </div>
                         <div>
@@ -51,12 +51,14 @@
     <!-- mobile menu -->
     <div class="container justify-center bg-slate-50 mobile-menu hidden absolute md:shadow-none shadow-md w-full mx-1">
         <ul class="mx-3 space-y-2 mb-4">
+            @guest
             <li>
                 <x-link-navbar class="lg:hidden text-black" href="/login" name="login" />
             </li>
             <li>
                 <x-link-navbar class="lg:hidden text-black" href="/register" name="register" />
             </li>
+            @endguest
             <li>
                 <x-link-navbar class="lg:hidden text-black" href="/" name="beranda" />
             </li>
@@ -64,7 +66,7 @@
                 <x-link-navbar class="lg:hidden text-black" href="/test" name="info lainnya" />
             </li>
             <li>
-                <x-link-navbar class="lg:hidden text-black" href="/postingan-anda" name="postingan anda" />
+                <x-link-navbar class="lg:hidden text-black" href="/author/postingan-anda" name="postingan anda" />
             </li>
         </ul>
     </div>
