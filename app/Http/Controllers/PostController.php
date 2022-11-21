@@ -15,11 +15,10 @@ class PostController extends Controller
         ]);
     }
 
-    // postingan anda
-    public function allPost()
+    public function show(Post $post)
     {
-        return view('posts.postingan_anda', [
-            'posts' => Post::query()->latest()->paginate(5)
+        return view('posts.post-content', [
+            'post' => $post
         ]);
     }
 }

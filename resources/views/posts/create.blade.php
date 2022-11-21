@@ -4,7 +4,7 @@
 
     <!-- main content / form -->
     <main class="mt-14">
-        <form class="w-full max-w-lg mx-6 md:mx-auto" action="" method="POST" enctype="multipart/form-data">
+        <form class="w-full max-w-lg mx-6 md:mx-auto" action="{{ route('post.create.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="flex -mx-3 mb-6">
                 <x-form.input name="nama_gunung" class="px-3 mb-6 md:mb-0" type="text" placeholder="Rinjani" />
@@ -18,9 +18,9 @@
             <div class=" -mx-3 mb-6 mt-6">
                 <x-form.textarea name="konten" id="konten" rows="5"/>
             </div>
-            <div class="hidden container mt-9 mb-6 lg:flex lg:justify-between">
-                <a href="postingan-anda" class="text-white bg-red-400 p-2 rounded-md w-20 text-center">Back</a>
-                <x-form.submit-button class="bg-green-500 text-white">Save</x-form.submit-button>
+            <div class="container mt-9 mb-6 flex justify-between">
+                <a href="{{ route('posts') }}" class="text-white bg-red-400 p-2 rounded-md w-20 text-center">Kembali</a>
+                <x-form.submit-button class="bg-green-500 text-white">Posting</x-form.submit-button>
             </div>
         </form>
     </main>

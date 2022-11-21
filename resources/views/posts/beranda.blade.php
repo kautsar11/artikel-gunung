@@ -12,7 +12,7 @@
         </form>
 
         {{-- post card --}}
-        <div class="container md:grid md:grid-cols-2 md:mx-auto lg:grid-cols-3 lg:mx-auto lg:justify-around ">
+        <div class="lg:grid lg:grid-cols-12 gap-x-5">
             @foreach ($posts as $post)
                 <x-post.post-card :post="$post" />
             @endforeach

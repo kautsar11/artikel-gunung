@@ -9,7 +9,8 @@
             <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
                 <header class="px-5 py-4 border-b border-gray-100 flex justify-between">
                     <h2 class="font-semibold text-gray-900 flex items-center">POSTINGAN ANDA</h2>
-                    <a href="tambah-postingan" class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Tambah Postingan</a>
+                    <a href="{{ route('post.create.show') }}"
+                        class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Tambah Postingan</a>
                 </header>
                 <div class="p-3">
                     <div class="overflow-x-auto">
@@ -43,20 +44,20 @@
                                         </td>
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="text-left font-medium">
-                                                {{ strlen($post->konten) > 30 ? substr($post->konten, 0, 30) . '...' : $post->konten }}
+                                                {!! strlen($post->konten) > 30 ? substr($post->konten, 0, 30) . '...' : $post->konten !!}
                                             </div>
                                         </td>
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="text-sm text-center flex space-x-2">
-                                                <a href=""
-                                                    class="text-blue-600 hover:text-blue-900">
+                                                <a href="" class="text-blue-600 hover:text-blue-900">
                                                     Edit
                                                 </a>
-    
-                                                <form action="" method="post">
+
+                                                <form action="hapus-postingan/{{ $post->id }}"
+                                                    method="post">
                                                     @csrf
                                                     @method('DELETE')
-    
+
                                                     <button class="text-xs text-red-400">Delete</button>
                                                 </form>
                                             </div>
@@ -68,10 +69,12 @@
                     </div>
                 </div>
             </div>
+
+
+            {{ $posts->links() }}
         </div>
     </section>
 
-    {{ $posts->links() }}
 
     {{-- footer --}}
     @include('components.layout._footer')

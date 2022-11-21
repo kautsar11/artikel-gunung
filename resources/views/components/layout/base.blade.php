@@ -14,13 +14,14 @@
     <script src="https://kit.fontawesome.com/65c8fa5346.js" crossorigin="anonymous"></script>
 
     <!-- tiny library for text rich -->
-    <script
-      src="https://cdn.tiny.cloud/1/15gb8kqdjbcom2naq57gmvjg6kra064bwf4k1ukeugyl3ixe/tinymce/6/tinymce.min.js"
-      referrerpolicy="origin"
-    ></script>
-    
+    <script src="https://cdn.tiny.cloud/1/15gb8kqdjbcom2naq57gmvjg6kra064bwf4k1ukeugyl3ixe/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
     <script>
-      tinymce.init({ selector: "#konten" });
+      tinymce.init({ 
+        selector: "textarea" ,
+        placeholder: "Tuliskan konten disini"
+      });
     </script>
 
     {{-- external js --}}
@@ -28,7 +29,7 @@
 </head>
 
 <body class="min-h-screen flex flex-col">
-    
+
     {{ $slot }}
 
 </body>

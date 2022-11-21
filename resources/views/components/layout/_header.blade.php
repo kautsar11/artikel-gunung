@@ -15,7 +15,7 @@
                                 class="text-gray-700 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             <x-link-navbar name="info lainnya" href="/test" class="text-gray-700" />
                             @auth
-                                <x-link-navbar name="postingan anda" href="/author/postingan-anda"
+                                <x-link-navbar name="postingan anda" href="{{ route('posts') }}"
                                     class="text-gray-700 {{ request()->is('author/postingan-anda') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             @endauth
                         </div>
@@ -66,7 +66,7 @@
                 <x-link-navbar class="lg:hidden text-black" href="/test" name="info lainnya" />
             </li>
             <li>
-                <x-link-navbar class="lg:hidden text-black" href="/author/postingan-anda" name="postingan anda" />
+                <x-link-navbar class="lg:hidden text-black" href="{{ route('posts') }}" name="postingan anda" />
             </li>
         </ul>
     </div>
