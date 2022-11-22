@@ -5,7 +5,7 @@
         <img class="w-full" src="https://fakeimg.pl/300/" alt="Sunset in the mountains" />
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">
-                <a href="postingan/{{ $post->nama_gunung }}">
+                <a href="posts/{{ $post->nama_gunung }}">
                     {{ $post->nama_gunung }}
                 </a>
             </div>

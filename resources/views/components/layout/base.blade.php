@@ -18,11 +18,14 @@
         referrerpolicy="origin"></script>
 
     <script>
-      tinymce.init({ 
-        selector: "textarea" ,
-        placeholder: "Tuliskan konten disini"
-      });
+        tinymce.init({
+            selector: "textarea",
+            placeholder: "Tuliskan konten disini"
+        });
     </script>
+
+    {{-- alpine js --}}
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     {{-- external js --}}
     <script src="{{ asset('js/assets/mobile-button.js') }}" defer></script>
@@ -32,6 +35,7 @@
 
     {{ $slot }}
 
+    <x-flash />
 </body>
 
 </html>

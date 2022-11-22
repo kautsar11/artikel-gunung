@@ -16,7 +16,7 @@
                 <x-form.input name="gambar" class="md:w-1/3 px-3" type="file" />
             </div>
             <div class=" -mx-3 mb-6 mt-6">
-                <x-form.textarea name="konten" id="konten" rows="5"/>
+                <x-form.textarea name="konten" id="konten" rows="5">{{ old('konten') }}</x-form.textarea>
             </div>
             <div class="container mt-9 mb-6 flex justify-between">
                 <a href="{{ route('posts') }}" class="text-white bg-red-400 p-2 rounded-md w-20 text-center">Kembali</a>

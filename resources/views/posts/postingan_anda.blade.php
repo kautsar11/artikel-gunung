@@ -49,12 +49,12 @@
                                         </td>
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="text-sm text-center flex space-x-2">
-                                                <a href="" class="text-blue-600 hover:text-blue-900">
+                                                <a href="/author/posts/{{ $post->id }}/edit"
+                                                    class="text-blue-600 hover:text-blue-900">
                                                     Edit
                                                 </a>
 
-                                                <form action="hapus-postingan/{{ $post->id }}"
-                                                    method="post">
+                                                <form action="/author/posts/{{ $post->id }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
 

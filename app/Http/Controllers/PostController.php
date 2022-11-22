@@ -11,7 +11,9 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.beranda', [
-            'posts' => Post::query()->latest()->paginate(6)
+            'posts' => Post::query()->latest()->filter(
+                request(['search'])
+            )->paginate(6)
         ]);
     }
 

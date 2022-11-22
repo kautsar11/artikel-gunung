@@ -6,26 +6,18 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', [PostController::class, 'index']);
 
-Route::get('postingan/{post:nama_gunung}', [PostController::class, 'show']);
+Route::get('posts/{post:nama_gunung}', [PostController::class, 'show']);
 
-Route::prefix('author')->middleware(['auth'])->group(function () {
-    Route::get('postingan-anda', [AuthorPostController::class, 'index'])->name('posts');
-    Route::view('tambah-postingan', 'posts.create')->name('post.create.show');
-    Route::post('simpan-postingan', [AuthorPostController::class, 'store'])->name('post.create.store');
-    Route::delete('hapus-postingan/{post}', [AuthorPostController::class, 'destroy'])->name('post.destroy');
+Route::middleware(['auth'])->group(function () {
+    Route::get('author/posts', [AuthorPostController::class, 'index'])->name('posts');
+    Route::get('author/posts/create', [AuthorPostController::class, 'create'])->name('post.create.show');
+    Route::post('author/posts', [AuthorPostController::class, 'store'])->name('post.create.store');
+    Route::get('author/posts/{post}/edit', [AuthorPostController::class, 'edit']);
+    Route::patch('author/posts/{post}', [AuthorPostController::class, 'update']);
+    Route::delete('author/posts/{post}', [AuthorPostController::class, 'destroy'])->name('post.destroy');
 });
 
 
