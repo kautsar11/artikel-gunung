@@ -19,7 +19,7 @@
 
     <script>
         tinymce.init({
-            selector: "textarea",
+            selector: "textarea#konten",
             placeholder: "Tuliskan konten disini"
         });
     </script>

@@ -24,7 +24,7 @@
                                         <div class="font-semibold text-left">Nama Gunung</div>
                                     </th>
                                     <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-left">Konten</div>
+                                        <div class="font-semibold text-left">tanggal rilis</div>
                                     </th>
                                     <th class="p-2 whitespace-nowrap">
                                         <div class="font-semibold text-center"></div>
@@ -44,7 +44,7 @@
                                         </td>
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="text-left font-medium">
-                                                {!! strlen($post->konten) > 30 ? substr($post->konten, 0, 30) . '...' : $post->konten !!}
+                                                {{ date('d-M-Y', strtotime($post->created_at)) }}
                                             </div>
                                         </td>
                                         <td class="p-2 whitespace-nowrap">

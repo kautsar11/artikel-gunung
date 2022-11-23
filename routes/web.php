@@ -6,19 +6,26 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', [PostController::class, 'index']);
-
-Route::get('posts/{post:nama_gunung}', [PostController::class, 'show']);
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('author/posts', [AuthorPostController::class, 'index'])->name('posts');
-    Route::get('author/posts/create', [AuthorPostController::class, 'create'])->name('post.create.show');
-    Route::post('author/posts', [AuthorPostController::class, 'store'])->name('post.create.store');
-    Route::get('author/posts/{post}/edit', [AuthorPostController::class, 'edit']);
-    Route::patch('author/posts/{post}', [AuthorPostController::class, 'update']);
-    Route::delete('author/posts/{post}', [AuthorPostController::class, 'destroy'])->name('post.destroy');
+Route::controller(PostController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('posts/{post:nama_gunung}', 'show');
 });
+
+Route::group(
+    [
+        'prefix' => 'author',
+        'middleware' => ['auth'],
+        'controller' => AuthorPostController::class
+    ],
+    function () {
+        Route::get('posts', 'index')->name('posts');
+        Route::get('posts/create', 'create')->name('post.create.show');
+        Route::post('posts', 'store')->name('post.create.store');
+        Route::get('posts/{post}/edit', 'edit');
+        Route::patch('posts/{post}', 'update');
+        Route::delete('posts/{post}', 'destroy')->name('post.destroy');
+    }
+);
 
 
 Route::group(['controller' => RegisterController::class, 'middleware' => 'guest'], function () {

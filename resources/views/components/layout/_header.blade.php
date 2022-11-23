@@ -12,11 +12,11 @@
                     <div class="ml-10 flex items-baseline space-x-4 justify-between">
                         <div class="lg:w-2/4 flex justify-start">
                             <x-link-navbar name="beranda" href="/"
-                                class="text-gray-700 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
-                            <x-link-navbar name="info lainnya" href="/test" class="text-gray-700" />
+                                class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                            <x-link-navbar name="info lainnya" href="/test" class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2" />
                             @auth
                                 <x-link-navbar name="postingan anda" href="{{ route('posts') }}"
-                                    class="text-gray-700 {{ request()->is('author/postingan-anda') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                                    class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('author/postingan-anda') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             @endauth
                         </div>
                         <div>
@@ -51,14 +51,6 @@
     <!-- mobile menu -->
     <div class="container justify-center bg-slate-50 mobile-menu hidden absolute md:shadow-none shadow-md w-full mx-1">
         <ul class="mx-3 space-y-2 mb-4">
-            @guest
-            <li>
-                <x-link-navbar class="lg:hidden text-black" href="/login" name="login" />
-            </li>
-            <li>
-                <x-link-navbar class="lg:hidden text-black" href="/register" name="register" />
-            </li>
-            @endguest
             <li>
                 <x-link-navbar class="lg:hidden text-black" href="/" name="beranda" />
             </li>
@@ -68,6 +60,14 @@
             <li>
                 <x-link-navbar class="lg:hidden text-black" href="{{ route('posts') }}" name="postingan anda" />
             </li>
+            @guest
+            <li>
+                <x-link-navbar class="lg:hidden text-black" href="/login" name="login" />
+            </li>
+            <li>
+                <x-link-navbar class="lg:hidden text-black" href="/register" name="register" />
+            </li>
+            @endguest
         </ul>
     </div>
 </nav>

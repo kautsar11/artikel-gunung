@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class AuthorPostController extends Controller
@@ -12,7 +11,8 @@ class AuthorPostController extends Controller
     public function index()
     {
         return view('posts.postingan_anda', [
-            'posts' => Post::query()->latest()->paginate(5)
+            // 'posts' => Post::query()->latest()->paginate(5)
+            'posts' => Post::query()->where('user_id', auth()->id())->latest()->paginate(5)
         ]);
     }
 

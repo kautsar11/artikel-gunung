@@ -4,7 +4,8 @@
 
     <!-- main content / form -->
     <main class="mt-14">
-        <form class="w-full max-w-lg mx-6 md:mx-auto" action="{{ route('post.create.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="w-full max-w-lg mx-6 md:mx-auto" action="{{ route('post.create.store') }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             <div class="flex -mx-3 mb-6">
                 <x-form.input name="nama_gunung" class="px-3 mb-6 md:mb-0" type="text" placeholder="Rinjani" />

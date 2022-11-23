@@ -12,15 +12,15 @@
         </form>
 
         @if ($posts->count())
-        {{-- post card --}}
-        <div class="lg:grid lg:grid-cols-12 gap-x-5">
-            @foreach ($posts as $post)
-                <x-post.post-card :post="$post" />
-            @endforeach
-        </div>
-        {{ $posts->links() }}
+            {{-- post card --}}
+            <div class="lg:grid lg:grid-cols-12 gap-x-5">
+                @foreach ($posts as $post)
+                    <x-post.post-card :post="$post" />
+                @endforeach
+            </div>
+            {{ $posts->links() }}
         @else
-        <p class="text-center">Tidak ada postingan</p>
+            <p class="text-center">Tidak ada postingan</p>
         @endif
     </main>
 

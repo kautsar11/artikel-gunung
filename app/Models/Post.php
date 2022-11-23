@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +14,7 @@ class Post extends Model
 
     protected $with = ['author'];
 
-    public function scopeFilter($query, array $filters)
+    public function scopeFilter(Builder $query, array $filters)
     {
         $query->when(
             $filters['search'] ?? false,
