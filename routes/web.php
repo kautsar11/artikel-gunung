@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorPostController;
+use App\Http\Controllers\CommentPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
@@ -26,6 +27,9 @@ Route::group(
         Route::delete('posts/{post}', 'destroy')->name('post.destroy');
     }
 );
+
+Route::post('posts/{post:nama_gunung}/comments', [CommentPostController::class, 'store'])->middleware('auth');
+Route::delete('posts/comments/{comment}', [CommentPostController::class, 'destroy'])->middleware('auth');
 
 
 Route::group(['controller' => RegisterController::class, 'middleware' => 'guest'], function () {
