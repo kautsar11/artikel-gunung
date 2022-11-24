@@ -4,7 +4,7 @@
 
     <!-- main content / form -->
     <main class="mt-14">
-        <form class="w-full max-w-lg mx-6 md:mx-auto" action="/author/posts/{{ $post->id }}" method="POST"
+        <form class="w-full max-w-lg mx-6 md:mx-auto" action="/admin/posts/{{ $post->id }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             @method('PATCH')

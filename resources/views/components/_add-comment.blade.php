@@ -1,5 +1,5 @@
 @auth
-    <div class="mt-6 ml-10">
+    <div class="mt-6 ml-10 mb-10">
         <form action="/posts/{{ $post->nama_gunung }}/comments" method="post">
             @csrf
 
@@ -20,7 +20,7 @@
         </form>
     </div>
 @else
-    <div class="container mx-6 mt-32">
+    <div class="container mx-6 mt-32 mb-10">
         <p class="font-semibold">
             <a href="/register" class="hover:underline">Register</a>
             atau

@@ -13,10 +13,10 @@
                         <div class="lg:w-2/4 flex justify-start">
                             <x-link-navbar name="beranda" href="/"
                                 class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
-                            <x-link-navbar name="info lainnya" href="/test" class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2" />
+                            <x-link-navbar name="info lainnya" href="/info-lainnya" class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('info-lainnya') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             @auth
                                 <x-link-navbar name="postingan anda" href="{{ route('posts') }}"
-                                    class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('author/postingan-anda') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                                    class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('admin/posts') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             @endauth
                         </div>
                         <div>
@@ -55,7 +55,7 @@
                 <x-link-navbar class="lg:hidden text-black" href="/" name="beranda" />
             </li>
             <li>
-                <x-link-navbar class="lg:hidden text-black" href="/test" name="info lainnya" />
+                <x-link-navbar class="lg:hidden text-black" href="/info-lainnya" name="info lainnya" />
             </li>
             <li>
                 <x-link-navbar class="lg:hidden text-black" href="{{ route('posts') }}" name="postingan anda" />

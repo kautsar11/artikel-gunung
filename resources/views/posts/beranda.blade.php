@@ -2,7 +2,7 @@
     <!-- navbar -->
     @include('components.layout._header')
 
-    <main class="mt-14">
+    <main class="mt-14 h-screen">
 
         {{-- search --}}
         <form action="/" method="get" class="w-full flex justify-center mb-7">
@@ -20,7 +20,7 @@
             </div>
             {{ $posts->links() }}
         @else
-            <p class="text-center">Tidak ada postingan</p>
+            <p class="flex justify-center items-center font-semibold h-full">Tidak ada postingan</p>
         @endif
     </main>
 

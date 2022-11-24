@@ -12,9 +12,11 @@ Route::controller(PostController::class)->group(function () {
     Route::get('posts/{post:nama_gunung}', 'show');
 });
 
+Route::view('info-lainnya', 'posts.info_lainnya');
+
 Route::group(
     [
-        'prefix' => 'author',
+        'prefix' => 'admin',
         'middleware' => ['auth'],
         'controller' => AuthorPostController::class
     ],
@@ -28,8 +30,10 @@ Route::group(
     }
 );
 
-Route::post('posts/{post:nama_gunung}/comments', [CommentPostController::class, 'store'])->middleware('auth');
-Route::delete('posts/comments/{comment}', [CommentPostController::class, 'destroy'])->middleware('auth');
+Route::group(['controller' => CommentPostController::class, 'middleware' => ['auth']], function () {
+    Route::post('posts/{post:nama_gunung}/comments', 'store');
+    Route::delete('posts/comments/{comment}', 'destroy');
+});
 
 
 Route::group(['controller' => RegisterController::class, 'middleware' => 'guest'], function () {
