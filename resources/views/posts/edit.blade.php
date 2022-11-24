@@ -18,7 +18,7 @@
             <div class="flex -mx-3 mb-2">
                 <x-form.input :value="old('harga_simaksi', $post->harga_simaksi)" name="harga_simaksi" class="md:w-1/3 px-3" type="number"
                     placeholder="20.000" />
-                <x-form.input name="gambar" class="md:w-1/3 px-3" type="file" />
+                <x-form.input name="gambar" class="md:w-1/3 px-3" type="file" :value="old('gambar',$post->gambar)"/>
             </div>
             <div class=" -mx-3 mb-6 mt-6">
                 <x-form.textarea name="konten" id="konten" rows="5"> {{ old('konten', $post->konten) }}

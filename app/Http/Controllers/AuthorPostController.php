@@ -24,7 +24,8 @@ class AuthorPostController extends Controller
     public function store()
     {
         $attributes = array_merge($this->validatePost(), [
-            'user_id' => auth()->id()
+            'user_id' => auth()->id(),
+            'gambar' => request()->file('gambar')->store('thumbnails')
         ]);
 
         Post::create($attributes);
@@ -39,7 +40,9 @@ class AuthorPostController extends Controller
 
     public function update(Post $post)
     {
-        $attributes = array_merge($this->validatePost());
+        $attributes = array_merge($this->validatePost($post));
+
+        if ($attributes['gambar'] ?? false) $attributes['gambar'] = request()->file('gambar')->store('thumbnails');
 
         $post->update($attributes);
 
@@ -59,7 +62,7 @@ class AuthorPostController extends Controller
 
         return request()->validate(
             [
-                'nama_gunung' => ['required', Rule::unique('posts', 'nama_gunung')->ignore($post)],
+                'nama_gunung' => ['required', Rule::unique('posts', 'nama_gunung')->ignore($post->id)],
                 'alamat' => ['required'],
                 'harga_simaksi' => ['required', 'integer'],
                 'gambar' => ['image'],
