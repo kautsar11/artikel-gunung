@@ -31,11 +31,12 @@
     <script src="{{ asset('js/assets/mobile-button.js') }}" defer></script>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="lg:min-h-screen lg:flex lg:flex-col">
 
-    {{ $slot }}
+{{ $slot }}
 
-    <x-flash />
+<x-flash/>
+
 </body>
 
 </html>

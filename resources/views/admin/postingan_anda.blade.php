@@ -41,7 +41,7 @@
                                                 </div>
                                             </td>
                                             <td class="p-2 whitespace-nowrap">
-                                                <div class="text-left">{{ $post->nama_gunung }}</div>
+                                                <div class="text-left hover:underline"><a href="/posts/{{ $post->nama_gunung }}">{{ $post->nama_gunung }}</a></div>
                                             </td>
                                             <td class="p-2 whitespace-nowrap">
                                                 <div class="text-left font-medium">
@@ -49,7 +49,7 @@
                                                 </div>
                                             </td>
                                             <td class="p-2 whitespace-nowrap">
-                                                <div class="text-sm text-center flex space-x-2">
+                                                <div class="flex justify-center text-sm text-center flex space-x-4">
                                                     <a href="/admin/posts/{{ $post->id }}/edit"
                                                         class="text-blue-600 hover:text-blue-900">
                                                         Edit

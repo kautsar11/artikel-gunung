@@ -29,6 +29,6 @@ class SessionController extends Controller
     {
         auth()->logout();
 
-        return redirect('/')->with('succes', 'Goodbye!');
+        return redirect('/')->with('success', 'Goodbye!');
     }
 }

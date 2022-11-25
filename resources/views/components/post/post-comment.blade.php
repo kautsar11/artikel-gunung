@@ -4,7 +4,7 @@
     <article class="flex space-x-4 justify-between">
         <div>
             <header class="mb-4">
-                <h3 class="font-bold">{{ $comment->author->username }}</h3>
+                <h3 class="font-bold">{{ $comment->author->id == auth()->id() ? "Anda" : $comment->author->username }}</h3>
                 <p class="text-xs">
                     diposting
                     <time>{{ $comment->created_at->format('j F, Y (g:i a)') }}</time>

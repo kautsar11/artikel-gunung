@@ -15,7 +15,7 @@
                         Login
                     </x-form.submit-button>
                     
-                    <a href="register" class="text-sm text-gray-400">Belum memiliki akun?</a>
+                    <a href="register" class="text-sm text-gray-400 hover:underline">Belum memiliki akun?</a>
                 </div>
             </form>
         </div>

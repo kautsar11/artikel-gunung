@@ -16,7 +16,7 @@
                         Register
                     </x-form.submit-button>
 
-                    <a href="login" class="text-sm text-gray-400">Sudah memiliki akun?</a>
+                    <a href="login" class="text-sm text-gray-400 hover:underline">Sudah memiliki akun?</a>
                 </div>
             </form>
         </div>
