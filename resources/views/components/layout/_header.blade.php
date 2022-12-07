@@ -15,8 +15,10 @@
                                 class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             <x-link-navbar name="info lainnya" href="/info-lainnya" class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('info-lainnya') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             @auth
-                                <x-link-navbar name="postingan anda" href="{{ route('posts') }}"
-                                    class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('admin/posts') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                            @if (auth()->user()->isAdmin === 1)
+                            <x-link-navbar name="postingan anda" href="{{ route('posts') }}"
+                                class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('admin/posts') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                            @endif
                             @endauth
                         </div>
                         <div>

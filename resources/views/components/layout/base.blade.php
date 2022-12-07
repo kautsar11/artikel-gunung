@@ -33,9 +33,9 @@
 
 <body class="lg:min-h-screen lg:flex lg:flex-col">
 
-{{ $slot }}
+    {{ $slot }}
 
-<x-flash/>
+    <x-flash />
 
 </body>
 

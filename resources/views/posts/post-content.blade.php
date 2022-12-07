@@ -5,9 +5,10 @@
     <!-- main content / form -->
     <main class="mt-14">
         <section>
-            <div class="container w-full flex mx-auto space-x-24">
-                <img src="{{ asset('storage/' . $post->gambar) }}" alt="Sunset in the mountains" width="30%" height="20%" class="mr-4 h-full" />
-                <div class="w-full">
+            <div class="container w-full block mx-5 lg:flex lg:mx-auto lg:space-x-24">
+                <img src="{{ $post->gambar == null ? 'https://fakeimg.pl/600x200/' : asset('storage/' . $post->gambar) }}"
+                    alt="Sunset in the mountains" width="50%" class="mr-4 h-full" />
+                <div class="w-full flex flex-col mt-3">
                     <div class="mb-5">
                         <h1 class="uppercase text-3xl font-semibold font-mono">{{ $post->nama_gunung }}</h1>
                         <h5>Alamat :{{ $post->alamat }}</h5>

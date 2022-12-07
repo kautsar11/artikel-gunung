@@ -1,10 +1,10 @@
 @props(['post'])
 
 <div class="flex justify-center mb-7 col-span-4">
-    <div class="w-96 max-w-sm rounded overflow-hidden transition ease-in-out delay-100 hover:shadow-2xl">
+    <div class="w-80 md:w-[450px] lg:w-96 max-w-sm rounded overflow-hidden transition ease-in-out delay-100 hover:shadow-2xl">
         <img class="w-full" src="{{$post->gambar == null ? 'https://fakeimg.pl/200x150/' : asset('storage/' . $post->gambar) }}" width="100%" height="40%" alt="Sunset in the mountains" />
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">
+            <div class="font-bold text-xl mb-2 uppercase">
                     <p>{{ $post->nama_gunung }}</p>
             </div>
             <div class="flex flex-col content-between">
