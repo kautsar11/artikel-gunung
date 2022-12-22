@@ -6,7 +6,7 @@
     <main class="mt-14">
         <section>
             <div class="container w-full block mx-5 lg:flex lg:mx-auto lg:space-x-24">
-                <img src="{{ $post->gambar == null ? 'https://fakeimg.pl/600x200/' : asset('storage/' . $post->gambar) }}"
+                <img class=" aspect-[4/3] object-contain" src="{{ $post->gambar == null ? 'https://fakeimg.pl/600x200/' : asset('storage/' . $post->gambar) }}"
                     alt="Sunset in the mountains" width="50%" class="mr-4 h-full" />
                 <div class="w-full flex flex-col mt-3">
                     <div class="mb-5">

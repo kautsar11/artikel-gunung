@@ -15,7 +15,7 @@
             </div>
 
             <div class="mt-2">
-                <x-form.submit-button class="bg-gray-900 text-white">Submit</x-form.submit-button>
+                <x-form.submit-button class="bg-gray-900 text-white">kirim</x-form.submit-button>
             </div>
         </form>
     </div>

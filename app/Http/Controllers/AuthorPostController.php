@@ -11,7 +11,6 @@ class AuthorPostController extends Controller
     public function index()
     {
         return view('admin.postingan_anda', [
-            // 'posts' => Post::query()->latest()->paginate(5)
             'posts' => Post::query()->where('user_id', auth()->id())->latest()->paginate(5)
         ]);
     }

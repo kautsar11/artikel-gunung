@@ -21,6 +21,7 @@
             </div>
             {{ $posts->links() }}
         @else
+
             <p class="flex justify-center items-center font-semibold h-full">Tidak ada postingan</p>
         @endif
     </main>
