@@ -17,6 +17,11 @@
     <script src="https://cdn.tiny.cloud/1/15gb8kqdjbcom2naq57gmvjg6kra064bwf4k1ukeugyl3ixe/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
 
+    {{-- jquery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
         tinymce.init({
             selector: "textarea#konten",

@@ -7,7 +7,7 @@
                 <h3 class="font-bold">{{ $comment->author->id == auth()->id() ? "Anda" : $comment->author->username }}</h3>
                 <p class="text-xs">
                     diposting
-                    <time>{{ $comment->created_at->format('j F, Y (g:i a)') }}</time>
+                    <time>{{ $comment->created_at->format('j F, Y') }}</time>
                 </p>
             </header>
 

@@ -31,7 +31,7 @@ Route::group(
 );
 
 Route::group(['controller' => CommentPostController::class, 'middleware' => ['auth']], function () {
-    Route::post('posts/{post:nama_gunung}/comments', 'store');
+    Route::post('posts/{post:nama_gunung}/comments', 'store')->name('post.comment.create');
     Route::delete('posts/comments/{comment}', 'destroy');
 });
 

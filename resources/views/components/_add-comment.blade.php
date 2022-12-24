@@ -1,6 +1,6 @@
 @auth
     <div class="mt-6 ml-10 mb-10">
-        <form action="/posts/{{ $post->nama_gunung }}/comments" method="post">
+        <form method="POST">
             @csrf
 
             <header class="mb-1">
@@ -8,14 +8,15 @@
             </header>
 
             <div>
-                <textarea name="body" rows="5" cols="20" class="w-1/2 text-sm focus:outline-none focus:ring border p-2 border-gray-900 rounded"
+                <textarea id="kontenKomen" name="body" rows="5" cols="20"
+                    class="w-1/2 text-sm focus:outline-none focus:ring border p-2 border-gray-900 rounded"
                     placeholder="Tulis komentarmu disini!"></textarea>
 
                 <x-form.error name="body" />
             </div>
 
             <div class="mt-2">
-                <x-form.submit-button class="bg-gray-900 text-white">kirim</x-form.submit-button>
+                <x-form.submit-button id="btnSub" class="bg-gray-900 text-white">kirim</x-form.submit-button>
             </div>
         </form>
     </div>

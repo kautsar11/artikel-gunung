@@ -8,19 +8,23 @@ use Illuminate\Http\Request;
 
 class CommentPostController extends Controller
 {
-    public function store(Post $post)
+    public function store(Request $request, Post $post)
     {
-        request()->validate(
-            ['body' => ['required']],
-            ['body.required' => 'Tidak boleh kosong!']
-        );
+        if ($request->ajax()) {
+            request()->validate(
+                ['body' => ['required']],
+                ['body.required' => 'Tidak boleh kosong!']
+            );
 
-        $post->comments()->create([
-            'user_id' => request()->user()->id,
-            'body' => request('body')
-        ]);
-
-        return back();
+            $data = $post->comments()->create([
+                'user_id' => request()->user()->id,
+                'body' => request('body')
+            ]);
+            return response()->json([
+                'success' => true,
+                'data' => $data
+            ]);
+        }
     }
 
     public function destroy(Comment $comment)
