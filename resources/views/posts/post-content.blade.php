@@ -35,8 +35,21 @@
     @include('components.layout._footer')
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        function isCommentOwner(data){
+            if(data['data']['user_id'] === {{ auth()->id() }}){
+                return `
+                <div>
+                    <form action="" method="post">
+                        @csrf
 
+                        <x-form.submit-button data-id="${data['data']['id']}" class="hapusKomen bg-red-500 text-white">Hapus</x-form.submit-button>
+                    </form>
+                </div>
+                `
+            }
+        }
+    
+        $(document).ready(function() {
             $('#btnSub').click(function(e) {
                 e.preventDefault()
                 $.ajax({
@@ -49,7 +62,6 @@
                     dataType: "JSON",
                     success: function(data) {
                         let currentUser = {{ auth()->id() }}
-                        console.log(data);
 
                         if(data['success']){
                             $('#listOfComment').append(`
@@ -57,17 +69,17 @@
                                 <article class="flex space-x-4 justify-between">
                                     <div>
                                         <header class="mb-4">
-                                            <h3 class="font-bold">${(data['data']['user_id'] === currentUser) ? 'Anda' : ''}</h3>
+                                            <h3 class="font-bold">${(data['data']['user_id'] === currentUser) ? 'Anda' : data['user']['username']}</h3>
                                             <p class="text-xs">
                                                 diposting
-                                                <time>${new Date().toLocaleDateString('en-gb',data['data']['created_at'],{day:"numeric",month:'long',year:'numeric'})}</time>
+                                                <time>${new Date(data['data']['created_at']).toLocaleDateString('en-gb',{day:"numeric",month:'long',year:'numeric'})}</time>
                                             </p>
                                         </header>
     
                                         <p>${data['data']['body']}</p>
 
-                                        
-                                    </div>
+                                        </div>
+                                        ${isCommentOwner(data)}
     
                                 </article>
                             </div>
@@ -78,6 +90,28 @@
                     }
                 })
             })
+
+            $('.hapusKomen').click(function(e){
+                e.preventDefault()
+                $.ajax({
+                    type: "delete",
+                    url: "/posts/comments/"+$(this).data('id'),
+                    data: {
+                        'id': $(this).data('id'),
+                        '_token': $('input[name=_token]').val()
+                    },
+                    success: function(data) {
+                        console.log(data);
+
+                        if(data['success']){
+
+                        }
+                    }
+                })
+            })
         })
+        $(document).ajaxStop(function(){
+            window.location.reload();
+        });
     </script>
 </x-layout.base>

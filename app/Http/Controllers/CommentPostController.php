@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentPostController extends Controller
@@ -22,15 +23,20 @@ class CommentPostController extends Controller
             ]);
             return response()->json([
                 'success' => true,
-                'data' => $data
+                'data' => $data,
+                'user' => User::query()->where('id', auth()->id())->first()
             ]);
         }
     }
 
-    public function destroy(Comment $comment)
+    public function destroy(Request $request, Comment $comment)
     {
-        $comment->delete();
+        if ($request->ajax()) {
+            $comment->delete();
 
-        return back();
+            return response()->json([
+                'success' => true
+            ]);
+        }
     }
 }

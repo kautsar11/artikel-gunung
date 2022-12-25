@@ -16,11 +16,11 @@
 
         @if (auth()->id() === $comment->author->id)
         <div>
-            <form action="/posts/comments/{{ $comment->id }}" method="post">
+            <form action="" method="post">
                 @csrf
-                @method('DELETE')
+                {{-- @method('DELETE') --}}
 
-                <x-form.submit-button class="bg-red-500 text-white">Hapus</x-form.submit-button>
+                <x-form.submit-button data-id="{{ $comment->id }}" class="hapusKomen bg-red-500 text-white">Hapus</x-form.submit-button>
             </form>
         </div>
         @endif
