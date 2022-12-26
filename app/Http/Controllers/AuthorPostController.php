@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class AuthorPostController extends Controller
@@ -56,11 +57,15 @@ class AuthorPostController extends Controller
         return redirect('admin/posts')->with('success', 'Postingan berhasil diubah');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Request $request, Post $post)
     {
-        $post->delete();
+        if ($request->ajax()) {
+            $post->delete();
 
-        return back()->with('success', 'Postingan berhasil dihapus');
+            return response()->json([
+                'success' => true
+            ]);
+        }
     }
 
     protected function validatePost(?Post $post = null): array

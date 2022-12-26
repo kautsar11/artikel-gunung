@@ -49,17 +49,17 @@
                                                 </div>
                                             </td>
                                             <td class="p-2 whitespace-nowrap">
-                                                <div class="flex justify-center text-sm text-center flex space-x-4">
+                                                <div class="flex justify-center text-sm text-center space-x-4">
                                                     <a href="/admin/posts/{{ $post->id }}/edit"
                                                         class="text-blue-600 hover:text-blue-900">
                                                         Edit
                                                     </a>
 
-                                                    <form action="/admin/posts/{{ $post->id }}" method="post">
+                                                    <form action="" method="post">
                                                         @csrf
-                                                        @method('DELETE')
+                                                        {{-- @method('DELETE') --}}
 
-                                                        <button class="text-xs text-red-400">Delete</button>
+                                                        <button data-id="{{ $post->id }}" class="hapusPost text-xs text-red-400">Delete</button>
                                                     </form>
                                                 </div>
                                             </td>
@@ -82,4 +82,29 @@
 
     {{-- footer --}}
     @include('components.layout._footer')
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.hapusPost').click(function(e){
+                e.preventDefault()
+                console.log($(this).data('id'));
+                console.log($('input[name=_token]').val());
+                $.ajax({
+                    type: "delete",
+                    url: "posts/"+$(this).data('id'),
+                    data: {
+                        'id': $(this).data('id'),
+                        '_token': $('input[name=_token]').val()
+                    },
+                    success: function(data) {
+                        console.log(data);
+
+                        if(data['success']){
+
+                        }
+                    }
+                })
+            })
+        })
+    </script>
 </x-layout.base>

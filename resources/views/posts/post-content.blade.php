@@ -35,8 +35,10 @@
     @include('components.layout._footer')
 
     <script type="text/javascript">
+        let currentUser = {{ auth()->id() }} ?? null
+
         function isCommentOwner(data){
-            if(data['data']['user_id'] === {{ auth()->id() }}){
+            if(data['data']['user_id'] === currentUser){
                 return `
                 <div>
                     <form action="" method="post">
@@ -52,43 +54,52 @@
         $(document).ready(function() {
             $('#btnSub').click(function(e) {
                 e.preventDefault()
-                $.ajax({
-                    type: "post",
-                    url: "{{ route('post.comment.create', $post->nama_gunung) }}",
-                    data: {
-                        'body': $('textarea#kontenKomen').val(),
-                        '_token': $('input[name=_token]').val()
-                    },
-                    dataType: "JSON",
-                    success: function(data) {
-                        let currentUser = {{ auth()->id() }}
+                let kontenKomen = $('textarea#kontenKomen');
 
-                        if(data['success']){
-                            $('#listOfComment').append(`
-                            <div class="bg-gray-100 mx-10 my-10 w-1/2 p-3 rounded">
-                                <article class="flex space-x-4 justify-between">
-                                    <div>
-                                        <header class="mb-4">
-                                            <h3 class="font-bold">${(data['data']['user_id'] === currentUser) ? 'Anda' : data['user']['username']}</h3>
-                                            <p class="text-xs">
-                                                diposting
-                                                <time>${new Date(data['data']['created_at']).toLocaleDateString('en-gb',{day:"numeric",month:'long',year:'numeric'})}</time>
-                                            </p>
-                                        </header>
-    
-                                        <p>${data['data']['body']}</p>
-
-                                        </div>
-                                        ${isCommentOwner(data)}
-    
-                                </article>
-                            </div>
-                                `)
-                        }
-
-                        $('#kontenKomen').val('')
+                if(kontenKomen.val() == ""){
+                    if($('#err').length == 0){
+                        kontenKomen.after('<p id="err" class="text-red-700">Tidak boleh kosong</p>')
                     }
-                })
+                }
+                
+                if(kontenKomen.val() !== ""){
+                    $.ajax({
+                        type: "post",
+                        url: "{{ route('post.comment.create', $post->nama_gunung) }}",
+                        data: {
+                            'body': kontenKomen.val(),
+                            '_token': $('input[name=_token]').val()
+                        },
+                        dataType: "JSON",
+                        success: function(data) {
+    
+                            if(data['success']){
+                                $('#listOfComment').append(`
+                                <div class="bg-gray-100 mx-10 my-10 w-1/2 p-3 rounded">
+                                    <article class="flex space-x-4 justify-between">
+                                        <div>
+                                            <header class="mb-4">
+                                                <h3 class="font-bold">${(data['data']['user_id'] === currentUser) ? 'Anda' : data['user']['username']}</h3>
+                                                <p class="text-xs">
+                                                    diposting
+                                                    <time>${new Date(data['data']['created_at']).toLocaleDateString('en-gb',{day:"numeric",month:'long',year:'numeric'})}</time>
+                                                </p>
+                                            </header>
+        
+                                            <p>${data['data']['body']}</p>
+    
+                                            </div>
+                                            ${isCommentOwner(data)}
+        
+                                    </article>
+                                </div>
+                                    `)
+                            }
+    
+                            $('#kontenKomen').val('')
+                        }
+                    })
+                }
             })
 
             $('.hapusKomen').click(function(e){

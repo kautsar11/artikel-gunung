@@ -11,6 +11,7 @@ class CommentPostController extends Controller
 {
     public function store(Request $request, Post $post)
     {
+
         if ($request->ajax()) {
             request()->validate(
                 ['body' => ['required']],
