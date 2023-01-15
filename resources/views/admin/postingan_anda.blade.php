@@ -25,7 +25,10 @@
                                             <div class="font-semibold text-left">Nama Gunung</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
-                                            <div class="font-semibold text-left">tanggal rilis</div>
+                                            <div class="font-semibold text-left">Tanggal Rilis</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="font-semibold text-left">Author</div>
                                         </th>
                                         <th class="p-2 whitespace-nowrap">
                                             <div class="font-semibold text-center"></div>
@@ -49,7 +52,12 @@
                                                 </div>
                                             </td>
                                             <td class="p-2 whitespace-nowrap">
-                                                <div class="flex justify-center text-sm text-center flex space-x-4">
+                                                <div class="text-left font-medium">
+                                                    {{ $post->author->username }}
+                                                </div>
+                                            </td>
+                                            <td class="p-2 whitespace-nowrap">
+                                                <div class="flex justify-center text-sm text-center space-x-4">
                                                     <a href="/admin/posts/{{ $post->id }}/edit"
                                                         class="text-blue-600 hover:text-blue-900">
                                                         Edit
