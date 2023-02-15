@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-class SessionController extends Controller
+class LoginController extends Controller
 {
     public function store()
     {

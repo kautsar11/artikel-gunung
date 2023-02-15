@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthorPostController;
 use App\Http\Controllers\CommentPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(PostController::class)->group(function () {
@@ -41,9 +41,9 @@ Route::group(['controller' => RegisterController::class, 'middleware' => 'guest'
     Route::post('register', 'store');
 });
 
-Route::group(['controller' => SessionController::class], function () {
+Route::group(['controller' => LoginController::class], function () {
     Route::middleware('guest')->group(function () {
-        Route::view('login', 'session.create')->name('login');
+        Route::view('login', 'login.login')->name('login');
         Route::post('login', 'store');
     });
 

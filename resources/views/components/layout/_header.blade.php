@@ -11,27 +11,23 @@
                 <div class="w-full hidden lg:block">
                     <div class="ml-10 flex items-baseline space-x-4 justify-between">
                         <div class="lg:w-2/4 flex justify-start">
-                            <x-link-navbar name="beranda" href="/"
-                                class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                            <x-link-navbar name="beranda" href="/" class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('/') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             <x-link-navbar name="info lainnya" href="/info-lainnya" class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('info-lainnya') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             @auth
                             @if (auth()->user()->isAdmin === 1)
-                            <x-link-navbar name="postingan anda" href="{{ route('posts') }}"
-                                class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('admin/posts') ? 'underline decoration-2 underline-offset-2' : '' }}" />
+                            <x-link-navbar name="postingan anda" href="{{ route('posts') }}" class="text-gray-700 hover:underline hover:decoration-2 hover:underline-offset-2 {{ request()->is('admin/posts') ? 'underline decoration-2 underline-offset-2' : '' }}" />
                             @endif
                             @endauth
                         </div>
                         <div>
                             @guest
-                                <x-link-navbar name="login" href="/login" class="text-gray-700" />
-                                <x-link-navbar name="register" href="/register"
-                                    class="bg-slate-900 ml-2 hover:border hover:border-gray-700 hover:bg-white hover:text-gray-900 text-white" />
+                            <x-link-navbar name="login" href="/login" class="text-gray-700" />
+                            <x-link-navbar name="register" href="/register" class="bg-slate-900 ml-2 hover:border hover:border-gray-700 hover:bg-white hover:text-gray-900 text-white" />
                             @else
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    <button type="submit"
-                                        class="font-mono bg-slate-900 text-white hover:bg-white hover:text-slate-900 hover:border rounded py-2 px-3">Logout</button>
-                                </form>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="font-mono bg-slate-900 text-white hover:bg-white hover:text-slate-900 hover:border rounded py-2 px-3">Logout</button>
+                            </form>
                             @endguest
                         </div>
                     </div>
@@ -40,8 +36,7 @@
                 <!-- mobile menu button -->
                 <div class="lg:hidden flex items-center">
                     <button class="outline-none mobile-menu-button">
-                        <svg class="w-6 h-6 text-gray-500 hover:text-gray-900" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="w-6 h-6 text-gray-500 hover:text-gray-900" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
